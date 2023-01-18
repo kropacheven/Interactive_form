@@ -66,7 +66,9 @@ design.addEventListener('change', (event) => {
 const payment = document.getElementById('payment');
 const paymentMethods = document.querySelectorAll('#payment option');
 console.log( paymentMethods[1] );
+paymentMethods[1].selected = 'true;'
 
+const creditCard = document.getElementById('credit-card');
 const bitcoin = document.getElementById('bitcoin');
 const paypal = document.getElementById('paypal');
 
@@ -78,12 +80,18 @@ paypal.style.display = 'none';
 
 payment.addEventListener('change', (event) => {
     if (event.target.value === 'paypal') {
-
+        creditCard.style.display = 'none';
+        bitcoin.style.display = 'none';
+        paypal.style.display = 'block';
     } else if (event.target.value === 'bitcoin') {
-
+        creditCard.style.display = 'none';
+        bitcoin.style.display = 'block';
+        paypal.style.display = 'none';
+    } else if (event.target.value === 'credit-card') {
+        creditCard.style.display = 'block';
+        bitcoin.style.display = 'none';
+        paypal.style.display = 'none';
     }
-
-
 });
 
 
