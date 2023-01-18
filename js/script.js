@@ -37,6 +37,9 @@ design.addEventListener('change', (event) => {
     color.disabled = false;
     //for (let i = 0; i < options.length; i++) {
     if (event.target.value === 'js puns' ) {
+
+        options[1].selected = true;
+
         options[1].disabled = false;
         options[2].disabled = false;
         options[3].disabled = false;
@@ -44,6 +47,9 @@ design.addEventListener('change', (event) => {
         options[5].disabled = true;
         options[6].disabled = true;
     } else {
+
+        options[4].selected = true;
+
         options[1].disabled = true;
         options[2].disabled = true;
         options[3].disabled = true;
