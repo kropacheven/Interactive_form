@@ -35,7 +35,6 @@ const options = document.querySelectorAll('#color option');
 
 design.addEventListener('change', (event) => {
     color.disabled = false;
-    //for (let i = 0; i < options.length; i++) {
     if (event.target.value === 'js puns' ) {
 
         options[1].selected = true;
@@ -57,5 +56,17 @@ design.addEventListener('change', (event) => {
         options[5].disabled = false;
         options[6].disabled = false;
     }
-    //}
 });
+
+// 4. Register for Activities section (checkboxes - cost sum):
+
+// 5. Payment info section (selection menu):
+
+// 6. Form validation section:
+
+// 7. Accessibility:
+
+
+
+
+// -------------------------------   Extra Credit --------------------------------------- //
