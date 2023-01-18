@@ -63,13 +63,28 @@ design.addEventListener('change', (event) => {
 
 // 5. Payment info section (selection menu):
 
+const payment = document.getElementById('payment');
+const paymentMethods = document.querySelectorAll('#payment option');
+console.log( paymentMethods[1] );
+
+const bitcoin = document.getElementById('bitcoin');
+const paypal = document.getElementById('paypal');
 
 
 
+bitcoin.style.display = 'none';
+paypal.style.display = 'none';
 
 
+payment.addEventListener('change', (event) => {
+    if (event.target.value === 'paypal') {
+
+    } else if (event.target.value === 'bitcoin') {
+
+    }
 
 
+});
 
 
 
