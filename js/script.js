@@ -24,15 +24,15 @@ for (let i = 0; i < jobRoles.length; i++) {
 }
 
 // 3. T-shirt info section - selection menues:
-const design = document.getElementById('design'); // design root of selection menu - element;
+const design = document.getElementById('design'); // design root of selection menu - returns 1 element;
 
 const color = document.getElementById('color');
-color.disabled = true;
+color.disabled = true;  // Color selection menue is disabled when the paage loads
 
-const options = document.querySelectorAll('#color option');
+const options = document.querySelectorAll('#color option'); //selecting all Color options - returns NodeList
 //console.log(options[4]);
 
-
+// Adding event listener on T-shirt Info (listen for change event on Design selection Menu):
 design.addEventListener('change', (event) => {
     color.disabled = false;
     if (event.target.value === 'js puns' ) {
@@ -47,7 +47,7 @@ design.addEventListener('change', (event) => {
         options[6].disabled = true;
     } else {
 
-        options[4].selected = true;
+        options[4].selected = true; 
 
         options[1].disabled = true;
         options[2].disabled = true;
@@ -58,9 +58,20 @@ design.addEventListener('change', (event) => {
     }
 });
 
+
 // 4. Register for Activities section (checkboxes - cost sum):
 
 // 5. Payment info section (selection menu):
+
+
+
+
+
+
+
+
+
+
 
 // 6. Form validation section:
 
