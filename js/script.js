@@ -61,6 +61,30 @@ design.addEventListener('change', (event) => {
 
 // 4. Register for Activities section (checkboxes - cost sum):
 
+const activities = document.getElementById('activities'); // capture root element of checkboxes
+//console.log(activities);
+//const checkboxes = document.querySelectorAll('#activities input'); // capture all checkboxes as an NodeList
+//console.log(checkboxes);
+let activitiesCost  = document.getElementById('activities-cost'); // selecting <p> element for TotalCost final display
+//console.log(activitiesCost);
+
+
+let totalCost = 0;
+
+activities.addEventListener('change', (event) => {
+    const clicked = event.target;
+    const clickedCost = parseInt( clicked.getAttribute('data-cost') );
+    //console.log(clickedCost);
+    //console.log(typeof clickedCost);
+    
+        if (clicked.checked) {
+            totalCost += clickedCost;
+        }  else {
+            totalCost -= clickedCost;
+    }
+    console.log(totalCost);
+    activitiesCost.textContent = `Total: $${totalCost}`;
+});
 
 
 
@@ -87,7 +111,7 @@ design.addEventListener('change', (event) => {
 
 const payment = document.getElementById('payment');
 const paymentMethods = document.querySelectorAll('#payment option');
-console.log( paymentMethods[1] );
+//console.log( paymentMethods[1] );
 paymentMethods[1].selected = 'true;'
 
 const creditCard = document.getElementById('credit-card');
