@@ -61,6 +61,28 @@ design.addEventListener('change', (event) => {
 
 // 4. Register for Activities section (checkboxes - cost sum):
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 5. Payment info section (selection menu):
 
 const payment = document.getElementById('payment');
