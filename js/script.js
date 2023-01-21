@@ -123,6 +123,9 @@ payment.addEventListener('change', (event) => {
 // 6. Form validation section:
 
     // a. Name field: can not be blank or empty
+
+
+    
     // b. Email address: must contain validly formatted email address 
     // c. Register for Activities section - must have at least 1 activity selected
     // d. The card number field must contain a 13-16 digital credit card number wit no dashes or spaces:
