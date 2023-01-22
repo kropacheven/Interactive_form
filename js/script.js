@@ -63,7 +63,7 @@ design.addEventListener('change', (event) => {
 
 const activities = document.getElementById('activities'); // capture root element of checkboxes
 //console.log(activities);
-//const checkboxes = document.querySelectorAll('#activities input'); // capture all checkboxes as an NodeList
+const checkboxes = document.querySelectorAll('#activities input'); // capture all checkboxes as an NodeList
 //console.log(checkboxes);
 let activitiesCost  = document.getElementById('activities-cost'); // selecting <p> element for TotalCost final display
 //console.log(activitiesCost);
@@ -225,15 +225,16 @@ form.addEventListener('submit', (e) => {
 
 // 7.1 Make the focus states of the activities more obvious to all users:
 
-// activities.addEventListener("focus", (e) => {
-//     if (e.target.tagName === 'INPUT') {
-//         let label = e.target.parentNode;
-//         console.log(e.target);
-//         label.className = '.focus';
-//     }
+for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].addEventListener("focus", (e) => {
+            let label = e.target.parentNode;
+            //console.log(e.target);
+            label.className = 'focus';
 
-//     console.log('The listener is working!');
-// });
+        //console.log('The listener is working!');
+    });
+}
+
 
 
 // 7.2 Make the form validation errors obvious to all users:
