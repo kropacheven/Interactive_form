@@ -221,8 +221,22 @@ form.addEventListener('submit', (e) => {
 
 });
 
-// 7. Accessibility:
+// 7. -------------------- Accessability ---------------------------- //
 
+// 7.1 Make the focus states of the activities more obvious to all users:
+
+// activities.addEventListener("focus", (e) => {
+//     if (e.target.tagName === 'INPUT') {
+//         let label = e.target.parentNode;
+//         console.log(e.target);
+//         label.className = '.focus';
+//     }
+
+//     console.log('The listener is working!');
+// });
+
+
+// 7.2 Make the form validation errors obvious to all users:
 
 
 
