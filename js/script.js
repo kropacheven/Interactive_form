@@ -157,15 +157,30 @@ const activityValidator = () => {
 
 // d. The card number field must contain a 13-16 digital credit card number wit no dashes or spaces:
 const ccNumValidator = () => {
-    //    if (paymentMethods.value === 'credit-card') {
+    //if (paymentMethods.value === 'credit-card') {
         let ccNumValue = ccNum.value;
         const ccNumIsValid = /\d{13,16}/.test(ccNumValue);
         //console.log(`ccNum validation test on "${ccNumValue}" evaluates to ${ccNumIsValid}`);
         return ccNumIsValid;
-    //    }
+    //}
     }
 
-// e. The "Zip code" field must contain a 5 digit number
+// e. The "Zip code" field must contain a 5 digit number:
+const zipNumValidator = () => {
+    //if (paymentMethods.value === 'credit-card') {
+        let zipNumValue = zipNum.value;
+        const zipNumIsValid = /\d{5}/.test(zipNumValue);
+        console.log(`zipNum validation test on "${zipNumValue}" evaluates to ${zipNumIsValid}`);
+        return zipNumIsValid;
+    //}
+    }
+
+
+
+
+
+
+
 // f. The "CVV" field must contain a 3 digit number
 
 
@@ -189,6 +204,10 @@ form.addEventListener('submit', (e) => {
    if ( !ccNumValidator() ) {
     e.preventDefault();
     console.log('The Credit Card Number validator prevented sibmission!!! Check out requerments.');
+   }
+   if ( !zipNumValidator() ) {
+    e.preventDefault();
+    console.log('The Zip validator prevented sibmission!!! Check out requerments.');
    }
 
 
