@@ -126,6 +126,11 @@ payment.addEventListener('change', (event) => {
 const form = document.querySelector('form');
 const inputEmail = document.getElementById('email');
 
+//Capturing credit card input fields:
+const ccNum = document.getElementById('cc-num');
+const zipNum = document.getElementById('zip');
+const cvvNum = document.getElementById('cvv');
+
 
 // a. Name field: can not be blank or empty:
 const nameValidator = () => {
@@ -151,17 +156,22 @@ const activityValidator = () => {
 }
 
 // d. The card number field must contain a 13-16 digital credit card number wit no dashes or spaces:
-
-
-
-
-
+const ccNumValidator = () => {
+    //    if (paymentMethods.value === 'credit-card') {
+        let ccNumValue = ccNum.value;
+        const ccNumIsValid = /\d{13,16}/.test(ccNumValue);
+        //console.log(`ccNum validation test on "${ccNumValue}" evaluates to ${ccNumIsValid}`);
+        return ccNumIsValid;
+    //    }
+    }
 
 // e. The "Zip code" field must contain a 5 digit number
-// f. The "CVV" field must contain a 3 digit number.
+// f. The "CVV" field must contain a 3 digit number
 
 
-// Event listener on whole form on submit event, checking: name, email, 
+
+
+// Event listener on whole form on submit event, checking: name, email, activity
 form.addEventListener('submit', (e) => {
    
    if ( !nameValidator() ) {
@@ -175,6 +185,10 @@ form.addEventListener('submit', (e) => {
    if ( !activityValidator() ) {
     e.preventDefault();
     console.log('The activity validator prevented sibmission!!! Check out requerments.');
+   }
+   if ( !ccNumValidator() ) {
+    e.preventDefault();
+    console.log('The Credit Card Number validator prevented sibmission!!! Check out requerments.');
    }
 
 
