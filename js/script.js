@@ -170,18 +170,20 @@ const zipNumValidator = () => {
     //if (paymentMethods.value === 'credit-card') {
         let zipNumValue = zipNum.value;
         const zipNumIsValid = /\d{5}/.test(zipNumValue);
-        console.log(`zipNum validation test on "${zipNumValue}" evaluates to ${zipNumIsValid}`);
+        //console.log(`zipNum validation test on "${zipNumValue}" evaluates to ${zipNumIsValid}`);
         return zipNumIsValid;
     //}
     }
 
-
-
-
-
-
-
-// f. The "CVV" field must contain a 3 digit number
+// f. The "CVV" field must contain a 3 digit number:
+const cvvNumValidator = () => {
+    //if (paymentMethods.value === 'credit-card') {
+        let cvvNumValue = cvvNum.value;
+        const cvvNumIsValid = /^\d{3}$/.test(cvvNumValue);
+        console.log(`cvvNum validation test on "${cvvNumValue}" evaluates to ${cvvNumIsValid}`);
+        return cvvNumIsValid;
+    //}
+    }
 
 
 
@@ -208,6 +210,10 @@ form.addEventListener('submit', (e) => {
    if ( !zipNumValidator() ) {
     e.preventDefault();
     console.log('The Zip validator prevented sibmission!!! Check out requerments.');
+   }
+   if ( !cvvNumValidator() ) {
+    e.preventDefault();
+    console.log('The CVV validator prevented sibmission!!! Check out requerments.');
    }
 
 
