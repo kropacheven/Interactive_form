@@ -122,15 +122,32 @@ payment.addEventListener('change', (event) => {
 
 // 6. Form validation section:
 
-    // a. Name field: can not be blank or empty
+const form = document.querySelector('form');
+//console.log(form);
+
+// a. Name field: can not be blank or empty:
+const nameValidator = () => {
+    let nameValue = inputName.value;
+    const nameIsValid = /^[a-zA-Z]+ ?[a-zA-Z]*? ?[a-zA-Z]*?$/.test(nameValue);
+    //console.log(`Name validation test on "${nameValue}" evaluates to ${nameIsValid}`);
+    return nameIsValid;
+}
 
 
-    
     // b. Email address: must contain validly formatted email address 
     // c. Register for Activities section - must have at least 1 activity selected
     // d. The card number field must contain a 13-16 digital credit card number wit no dashes or spaces:
     // e. The "Zip code" field must contain a 5 digit number
     // f. The "CVV" field must contain a 3 digit number.
+
+form.addEventListener('submit', (e) => {
+   
+   if ( !nameValidator() ) {
+    e.preventDefault();
+    console.log('The name validator prevented sibmission!!! Check out requerments.');
+   }
+
+});
 
 // 7. Accessibility:
 
