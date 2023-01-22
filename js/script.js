@@ -122,8 +122,10 @@ payment.addEventListener('change', (event) => {
 
 // 6. Form validation section:
 
+//Capturing form fields and inputs:
 const form = document.querySelector('form');
-//console.log(form);
+const inputEmail = document.getElementById('email');
+
 
 // a. Name field: can not be blank or empty:
 const nameValidator = () => {
@@ -133,19 +135,38 @@ const nameValidator = () => {
     return nameIsValid;
 }
 
+// b. Email address: must contain validly formatted email address:
+const emailValidator = () => {
+    let emailValue = inputEmail.value;
+    const emailIsValid  = /^[^@]+@[^@.]+\.com$/i.test(emailValue);
+    //console.log(`Email validation test on "${emailValue}" evaluates to ${emailIsValid}`);
+    return emailIsValid;
+}
 
-    // b. Email address: must contain validly formatted email address 
-    // c. Register for Activities section - must have at least 1 activity selected
+
+// c. Register for Activities section - must have at least 1 activity selected:
+const activityValidator = () => {
+
+
+}
+
     // d. The card number field must contain a 13-16 digital credit card number wit no dashes or spaces:
     // e. The "Zip code" field must contain a 5 digit number
     // f. The "CVV" field must contain a 3 digit number.
 
+
+// Event listener on whole form on submit event, checking: name, email, 
 form.addEventListener('submit', (e) => {
    
    if ( !nameValidator() ) {
     e.preventDefault();
     console.log('The name validator prevented sibmission!!! Check out requerments.');
    }
+   if ( !emailValidator() ) {
+    e.preventDefault();
+    console.log('The email validator prevented sibmission!!! Check out requerments.');
+   }
+
 
 });
 
