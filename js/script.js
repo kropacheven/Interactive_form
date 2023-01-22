@@ -159,7 +159,7 @@ const activityValidator = () => {
 const ccNumValidator = () => {
     //if (paymentMethods.value === 'credit-card') {
         let ccNumValue = ccNum.value;
-        const ccNumIsValid = /\d{13,16}/.test(ccNumValue);
+        const ccNumIsValid = /^\d{13,16}$/.test(ccNumValue);
         //console.log(`ccNum validation test on "${ccNumValue}" evaluates to ${ccNumIsValid}`);
         return ccNumIsValid;
     //}
@@ -169,7 +169,7 @@ const ccNumValidator = () => {
 const zipNumValidator = () => {
     //if (paymentMethods.value === 'credit-card') {
         let zipNumValue = zipNum.value;
-        const zipNumIsValid = /\d{5}/.test(zipNumValue);
+        const zipNumIsValid = /^\d{5}$/.test(zipNumValue);
         //console.log(`zipNum validation test on "${zipNumValue}" evaluates to ${zipNumIsValid}`);
         return zipNumIsValid;
     //}
@@ -180,7 +180,7 @@ const cvvNumValidator = () => {
     //if (paymentMethods.value === 'credit-card') {
         let cvvNumValue = cvvNum.value;
         const cvvNumIsValid = /^\d{3}$/.test(cvvNumValue);
-        console.log(`cvvNum validation test on "${cvvNumValue}" evaluates to ${cvvNumIsValid}`);
+        //console.log(`cvvNum validation test on "${cvvNumValue}" evaluates to ${cvvNumIsValid}`);
         return cvvNumIsValid;
     //}
     }
