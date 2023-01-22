@@ -203,19 +203,21 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log('The activity validator prevented sibmission!!! Check out requerments.');
    }
-   if ( !ccNumValidator() ) {
-    e.preventDefault();
-    console.log('The Credit Card Number validator prevented sibmission!!! Check out requerments.');
-   }
-   if ( !zipNumValidator() ) {
-    e.preventDefault();
-    console.log('The Zip validator prevented sibmission!!! Check out requerments.');
-   }
-   if ( !cvvNumValidator() ) {
-    e.preventDefault();
-    console.log('The CVV validator prevented sibmission!!! Check out requerments.');
-   }
-
+    // The condition set is only active when credit card payment option is selected (not for bitcoin or paypal) 
+    if (paymentMethods.value === 'credit-card') {
+        if ( !ccNumValidator() ) {
+            e.preventDefault();
+            console.log('The Credit Card Number validator prevented sibmission!!! Check out requerments.');
+        }
+        if ( !zipNumValidator() ) {
+            e.preventDefault();
+            console.log('The Zip validator prevented sibmission!!! Check out requerments.');
+        }
+        if ( !cvvNumValidator() ) {
+            e.preventDefault();
+            console.log('The CVV validator prevented sibmission!!! Check out requerments.');
+        }
+    }
 
 });
 
