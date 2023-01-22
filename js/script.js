@@ -143,16 +143,22 @@ const emailValidator = () => {
     return emailIsValid;
 }
 
-
 // c. Register for Activities section - must have at least 1 activity selected:
 const activityValidator = () => {
-
-
+    const activityIsValid = totalCost > 0; // the cost of activities should be more than 0 (at least 100)
+    //console.log(`Activity section validation test evaluates to ${activityIsValid}`);
+    return activityIsValid;
 }
 
-    // d. The card number field must contain a 13-16 digital credit card number wit no dashes or spaces:
-    // e. The "Zip code" field must contain a 5 digit number
-    // f. The "CVV" field must contain a 3 digit number.
+// d. The card number field must contain a 13-16 digital credit card number wit no dashes or spaces:
+
+
+
+
+
+
+// e. The "Zip code" field must contain a 5 digit number
+// f. The "CVV" field must contain a 3 digit number.
 
 
 // Event listener on whole form on submit event, checking: name, email, 
@@ -165,6 +171,10 @@ form.addEventListener('submit', (e) => {
    if ( !emailValidator() ) {
     e.preventDefault();
     console.log('The email validator prevented sibmission!!! Check out requerments.');
+   }
+   if ( !activityValidator() ) {
+    e.preventDefault();
+    console.log('The activity validator prevented sibmission!!! Check out requerments.');
    }
 
 
