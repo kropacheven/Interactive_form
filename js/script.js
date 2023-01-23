@@ -12,16 +12,18 @@ const jobRole = document.getElementById('title');
 const jobRoles = jobRole.querySelectorAll('option');
 //console.log(jobRoles)
 
-for ( let i = 0; i < jobRoles.length; i++ ) {
-    jobRole.addEventListener("change", () => {
+
+jobRole.addEventListener("change", () => {
+    for ( let i = 0; i < jobRoles.length; i++ ) {
         if (jobRoles[i].value === "other") {
             otherJob.hidden = false;
         } else {
             otherJob.hidden = true;
         }
-    });
-    console.log(jobRoles.value);
-}
+        console.log(jobRoles[i].value);
+    }
+});
+
 
 
 // 3. T-shirt info section - selection menues:
