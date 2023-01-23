@@ -84,7 +84,20 @@ activities.addEventListener('change', (event) => {
     }
     console.log(totalCost);
     activitiesCost.textContent = `Total: $${totalCost}`;
+
+    //Extra ------ Loop to activate/deactivate activities orranged at the same time when one is chosen:
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (clicked.getAttribute('data-day-and-time') === checkboxes[i].getAttribute('data-day-and-time') ) {
+            checkboxes[i].disabled = true;
+            clicked.disabled = false;
+        } else {
+            checkboxes[i].removeAttribute('disabled');
+        }
+    } 
 });
+
+
+
 
 
 // 5. Payment info section (selection menu):
@@ -310,6 +323,8 @@ function validationFail(element) {
 // -------------------------------   Extra Credit --------------------------------------- //
 
 // 1. Prevent users from registering for conflicting activities:
+
+// ^^^ Code embedded on the item 5 event listenerin main code section ^^^
 
 // 2. Real time error massage for name and email input fields:
 inputName.addEventListener('keyup', nameValidator);
