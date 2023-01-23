@@ -115,7 +115,7 @@ activities.addEventListener('change', (event) => {
 
 const payment = document.getElementById('payment');
 const paymentMethods = document.querySelectorAll('#payment option');
-console.log( paymentMethods );
+//console.log( paymentMethods );
 paymentMethods[1].selected = 'true;'
 
 const creditCard = document.getElementById('credit-card');
@@ -150,7 +150,7 @@ payment.addEventListener('change', (event) => {
 const form = document.querySelector('form');
 const inputEmail = document.getElementById('email');
 const activitiesBox = document.getElementById('activities-box');
-console.log(activitiesBox);
+//console.log(activitiesBox);
 
 //Capturing credit card input fields:
 const ccNum = document.getElementById('cc-num');
