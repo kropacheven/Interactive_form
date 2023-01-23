@@ -11,3 +11,4 @@
  5) Payment info is made changable according to selected payment method;  
  6) Name, email, activity and credit card sections are checked by form validation using regular expressions;
 
+10) Name and email input fields are programmed for realtime error messaging;

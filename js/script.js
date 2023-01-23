@@ -308,3 +308,11 @@ function validationFail(element) {
 
 
 // -------------------------------   Extra Credit --------------------------------------- //
+
+// 1. Prevent users from registering for conflicting activities:
+
+// 2. Real time error massage for name and email input fields:
+inputName.addEventListener('keyup', nameValidator);
+inputEmail.addEventListener('keyup', emailValidator);
+
+// 3. Conditional error message
