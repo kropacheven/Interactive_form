@@ -235,6 +235,16 @@ for (let i = 0; i < checkboxes.length; i++) {
     });
 }
 
+for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].addEventListener("blur", (e) => {
+            let label = e.target.parentNode;
+            //console.log(e.target);
+            label.removeAttribute('class');
+
+        //console.log('The listener is working!');
+    });
+}
+
 
 
 // 7.2 Make the form validation errors obvious to all users:
