@@ -13,6 +13,6 @@
  7) Focus/blur state event listener is added for activities checkboxes for accessability purpose;
  8) Form validation errors are displayed on sumbition and spotted at the certain place where user made mistake;
     when mistake is corrected - error sign is switched to correct status;
- 9)
+ 9) On activities section the user is prevented from selecting two activities that are at the same day and time;
 10) Name and email input fields are programmed for realtime error messaging;
 11) Email input field error massage is customized for 2 options: if the field is empty - user is asked to type email, if the field is typed but incorrectly formated - user is asked to rewrite it correctly.
