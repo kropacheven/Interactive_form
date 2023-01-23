@@ -20,7 +20,7 @@ jobRole.addEventListener("change", (e) => {
         } else {
             otherJob.hidden = true;
         }
-        console.log(jobRoles[i].value);
+        //console.log(jobRoles[i].value);
     }
 });
 
@@ -42,22 +42,22 @@ design.addEventListener('change', (event) => {
 
         options[1].selected = true;
 
-        options[1].disabled = false;
-        options[2].disabled = false;
-        options[3].disabled = false;
-        options[4].disabled = true;
-        options[5].disabled = true;
-        options[6].disabled = true;
+        options[1].hidden = false;
+        options[2].hidden = false;
+        options[3].hidden = false;
+        options[4].hidden = true;
+        options[5].hidden = true;
+        options[6].hidden = true;
     } else {
 
         options[4].selected = true; 
 
-        options[1].disabled = true;
-        options[2].disabled = true;
-        options[3].disabled = true;
-        options[4].disabled = false;
-        options[5].disabled = false;
-        options[6].disabled = false;
+        options[1].hidden = true;
+        options[2].hidden = true;
+        options[3].hidden = true;
+        options[4].hidden = false;
+        options[5].hidden = false;
+        options[6].hidden = false;
     }
 });
 
@@ -85,7 +85,7 @@ activities.addEventListener('change', (event) => {
         }  else {
             totalCost -= clickedCost;
     }
-    console.log(totalCost);
+    //console.log(totalCost);
     activitiesCost.textContent = `Total: $${totalCost}`;
 
     //Extra ------ 1. Loop to disactivate activities orranged at the same date and time as already chosen one :
