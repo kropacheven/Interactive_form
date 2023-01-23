@@ -91,7 +91,7 @@ activities.addEventListener('change', (event) => {
 
 const payment = document.getElementById('payment');
 const paymentMethods = document.querySelectorAll('#payment option');
-//console.log( paymentMethods[1] );
+console.log( paymentMethods );
 paymentMethods[1].selected = 'true;'
 
 const creditCard = document.getElementById('credit-card');
@@ -183,8 +183,8 @@ const ccNumValidator = () => {
     //if (paymentMethods.value === 'credit-card') {
         let ccNumValue = ccNum.value;
         const ccNumIsValid = /^\d{13,16}$/.test(ccNumValue);
-        console.log(`ccNum validation test on "${ccNumValue}" evaluates to ${ccNumIsValid}`);
-            //Checking the validity:
+        //console.log(`ccNum validation test on "${ccNumValue}" evaluates to ${ccNumIsValid}`);
+        //Checking the validity:
         if(ccNumIsValid) {
             validationPass(ccNum)
         } else {
@@ -201,6 +201,13 @@ const zipNumValidator = () => {
         let zipNumValue = zipNum.value;
         const zipNumIsValid = /^\d{5}$/.test(zipNumValue);
         //console.log(`zipNum validation test on "${zipNumValue}" evaluates to ${zipNumIsValid}`);
+        //Checking the validity:
+        if(zipNumIsValid) {
+            validationPass(zipNum)
+        } else {
+            validationFail(zipNum)
+        }
+
         return zipNumIsValid;
     //}
     }
@@ -211,6 +218,13 @@ const cvvNumValidator = () => {
         let cvvNumValue = cvvNum.value;
         const cvvNumIsValid = /^\d{3}$/.test(cvvNumValue);
         //console.log(`cvvNum validation test on "${cvvNumValue}" evaluates to ${cvvNumIsValid}`);
+        //Checking the validity:
+        if(cvvNumIsValid) {
+            validationPass(cvvNum)
+        } else {
+            validationFail(cvvNum)
+        }
+
         return cvvNumIsValid;
     //}
     }
@@ -231,7 +245,8 @@ form.addEventListener('submit', (e) => {
     console.log('The activity validator prevented sibmission!!! Check out requerments.');
    }
     // The condition set is only active when credit card payment option is selected (not for bitcoin or paypal) 
-    if (paymentMethods.value === 'credit-card') {
+    for (let i =0; i <paymentMethods.length; i++) {
+    if ( paymentMethods[i].value === 'credit-card' ) {
         if ( !ccNumValidator() ) {
             e.preventDefault();
             console.log('The Credit Card Number validator prevented sibmission!!! Check out requerments.');
@@ -244,7 +259,8 @@ form.addEventListener('submit', (e) => {
             e.preventDefault();
             console.log('The CVV validator prevented sibmission!!! Check out requerments.');
         }
-    }
+   }
+}
 
 });
 
@@ -273,7 +289,8 @@ for (let i = 0; i < checkboxes.length; i++) {
 }
 
 
-// 7.2 Make the form validation errors obvious to all users:
+// 7.2 Make the form validation errors obvious to all users: when the info is valid/nor volid appropriate class is assinged
+// * - This is function declaration - it is hoisted to the top when browser loads the page
 function validationPass(element) {
   const parent = element.parentElement;
   //console.log(parent);
