@@ -1,4 +1,3 @@
-
 // 1. Giving a name input field the focus state right when the page loads:
 const inputName = document.getElementById('name');
 inputName.focus();
@@ -6,22 +5,24 @@ inputName.focus();
 
 // 2. Other Job role hide/unhide on Job selection menu:
 const otherJob = document.getElementById('other-job-role');
-otherJob.style.display = 'none';
+otherJob.hidden = true;
 
 const jobRole = document.getElementById('title');
+//console.log(jobRole)
 const jobRoles = jobRole.querySelectorAll('option');
 //console.log(jobRoles)
 
-for (let i = 0; i < jobRoles.length; i++) {
-    jobRole.addEventListener('change', () => {
-        if (jobRoles[i].value === 'other') {
-            otherJob.style.display = 'block';
+for ( let i = 0; i < jobRoles.length; i++ ) {
+    jobRole.addEventListener("change", () => {
+        if (jobRoles[i].value === "other") {
+            otherJob.hidden = false;
         } else {
-            otherJob.style.display = 'none';
+            otherJob.hidden = true;
         }
     });
-    //console.log(jobRoles[i].value);
+    console.log(jobRoles.value);
 }
+
 
 // 3. T-shirt info section - selection menues:
 const design = document.getElementById('design'); // design root of selection menu - returns 1 element;
