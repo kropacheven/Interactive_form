@@ -85,15 +85,23 @@ activities.addEventListener('change', (event) => {
     console.log(totalCost);
     activitiesCost.textContent = `Total: $${totalCost}`;
 
-    //Extra ------ Loop to activate/deactivate activities orranged at the same time when one is chosen:
+    //Extra ------ 1. Loop to disactivate activities orranged at the same date and time as already chosen one :
     for (let i = 0; i < checkboxes.length; i++) {
         if (clicked.getAttribute('data-day-and-time') === checkboxes[i].getAttribute('data-day-and-time') ) {
             checkboxes[i].disabled = true;
             clicked.disabled = false;
-        } else {
-            checkboxes[i].removeAttribute('disabled');
         }
     } 
+});
+
+//Extra ------ 1. Loop to activate back activities disactivated on previous step (eventListener):
+activities.addEventListener('change', (event) => {
+    const clicked = event.target;
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (clicked.checked === false && clicked.getAttribute('data-day-and-time') === checkboxes[i].getAttribute('data-day-and-time')) {
+        checkboxes[i].removeAttribute('disabled');
+        }
+    }
 });
 
 
@@ -324,7 +332,7 @@ function validationFail(element) {
 
 // 1. Prevent users from registering for conflicting activities:
 
-// ^^^ Code embedded on the item 5 event listenerin main code section ^^^
+// ^^^ --- Code embedded at the top of a file on the "register for activities" event listener section --- ^^^
 
 // 2. Real time error massage for name and email input fields:
 inputName.addEventListener('keyup', nameValidator);
