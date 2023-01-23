@@ -13,9 +13,9 @@ const jobRoles = jobRole.querySelectorAll('option');
 //console.log(jobRoles)
 
 
-jobRole.addEventListener("change", () => {
+jobRole.addEventListener("change", (e) => {
     for ( let i = 0; i < jobRoles.length; i++ ) {
-        if (jobRoles[i].value === "other") {
+        if (e.target.value === "other") {
             otherJob.hidden = false;
         } else {
             otherJob.hidden = true;
