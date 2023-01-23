@@ -269,7 +269,7 @@ form.addEventListener('submit', (e) => {
     console.log('The activity validator prevented sibmission!!! Check out requerments.');
    }
     // The condition set is only active when credit card payment option is selected (not for bitcoin or paypal) 
-    for (let i =0; i <paymentMethods.length; i++) {
+    for (let i =0; i < paymentMethods.length; i++) {
     if ( paymentMethods[i].value === 'credit-card' ) {
         if ( !ccNumValidator() ) {
             e.preventDefault();
@@ -283,7 +283,7 @@ form.addEventListener('submit', (e) => {
             e.preventDefault();
             console.log('The CVV validator prevented sibmission!!! Check out requerments.');
         }
-   }
+   } 
 }
 
 });
