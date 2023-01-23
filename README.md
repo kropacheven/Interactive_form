@@ -12,3 +12,4 @@
  6) Name, email, activity and credit card sections are checked by form validation using regular expressions;
 
 10) Name and email input fields are programmed for realtime error messaging;
+11) Email input field error massage is customized for 2 options: if the field is empty - user is asked to type email, if the field is typed but incorrectly formatted - user is asked to rewrite it correctly.

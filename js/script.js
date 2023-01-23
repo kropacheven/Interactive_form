@@ -156,9 +156,9 @@ const emailValidator = () => {
     //console.log(`Email validation test on "${emailValue}" evaluates to ${emailIsValid}`);
     //Checking the validity:
     if(emailIsValid) {
-        validationPass(inputEmail)
+        validationEmailPass(inputEmail)
     } else {
-        validationFail(inputEmail)
+        validationEmailFail(inputEmail)
     }
 
     return emailIsValid;
@@ -315,4 +315,25 @@ function validationFail(element) {
 inputName.addEventListener('keyup', nameValidator);
 inputEmail.addEventListener('keyup', emailValidator);
 
-// 3. Conditional error message
+// 3. Conditional error message for email input field (validation functions for email are a bit modified for the task):
+function validationEmailPass(element) {
+    const parent = element.parentElement;
+    //console.log(parent);
+    parent.removeAttribute('class');
+    parent.className = 'valid';
+    parent.lastElementChild.style.display = 'none';
+  }
+  
+  function validationEmailFail(element) {
+    const parent = element.parentElement;
+    //parent.removeAttribute('class');
+    parent.className = 'not-valid';
+    // If email input field is empty - user should be asked to type it in:
+    if (element.value === '') {
+        parent.lastElementChild.previousElementSibling.style.display = 'block';
+        parent.lastElementChild.style.display = 'none';
+    } else { // If email input field is incorrect- user should rewrite it:
+        parent.lastElementChild.previousElementSibling.style.display = 'none';
+        parent.lastElementChild.style.display = 'block';
+    }
+  }
