@@ -125,6 +125,8 @@ payment.addEventListener('change', (event) => {
 //Capturing form fields and inputs:
 const form = document.querySelector('form');
 const inputEmail = document.getElementById('email');
+const activitiesBox = document.getElementById('activities-box');
+console.log(activitiesBox);
 
 //Capturing credit card input fields:
 const ccNum = document.getElementById('cc-num');
@@ -137,6 +139,13 @@ const nameValidator = () => {
     let nameValue = inputName.value;
     const nameIsValid = /^[a-zA-Z]+ ?[a-zA-Z]*? ?[a-zA-Z]*?$/.test(nameValue);
     //console.log(`Name validation test on "${nameValue}" evaluates to ${nameIsValid}`);
+    //Checking the validity:
+    if(nameIsValid) {
+        validationPass(inputName)
+    } else {
+        validationFail(inputName)
+    }
+
     return nameIsValid;
 }
 
@@ -145,6 +154,13 @@ const emailValidator = () => {
     let emailValue = inputEmail.value;
     const emailIsValid  = /^[^@]+@[^@.]+\.com$/i.test(emailValue);
     //console.log(`Email validation test on "${emailValue}" evaluates to ${emailIsValid}`);
+    //Checking the validity:
+    if(emailIsValid) {
+        validationPass(inputEmail)
+    } else {
+        validationFail(inputEmail)
+    }
+
     return emailIsValid;
 }
 
@@ -152,6 +168,13 @@ const emailValidator = () => {
 const activityValidator = () => {
     const activityIsValid = totalCost > 0; // the cost of activities should be more than 0 (at least 100)
     //console.log(`Activity section validation test evaluates to ${activityIsValid}`);
+        //Checking the validity:
+    if(activityIsValid) {
+        validationPass(activitiesBox)
+    } else {
+        validationFail(activitiesBox)
+    }
+
     return activityIsValid;
 }
 
@@ -160,7 +183,14 @@ const ccNumValidator = () => {
     //if (paymentMethods.value === 'credit-card') {
         let ccNumValue = ccNum.value;
         const ccNumIsValid = /^\d{13,16}$/.test(ccNumValue);
-        //console.log(`ccNum validation test on "${ccNumValue}" evaluates to ${ccNumIsValid}`);
+        console.log(`ccNum validation test on "${ccNumValue}" evaluates to ${ccNumIsValid}`);
+            //Checking the validity:
+        if(ccNumIsValid) {
+            validationPass(ccNum)
+        } else {
+            validationFail(ccNum)
+        }
+
         return ccNumIsValid;
     //}
     }
@@ -184,9 +214,6 @@ const cvvNumValidator = () => {
         return cvvNumIsValid;
     //}
     }
-
-
-
 
 // Event listener on whole form on submit event, checking: name, email, activity
 form.addEventListener('submit', (e) => {
@@ -246,9 +273,21 @@ for (let i = 0; i < checkboxes.length; i++) {
 }
 
 
-
 // 7.2 Make the form validation errors obvious to all users:
+function validationPass(element) {
+  const parent = element.parentElement;
+  //console.log(parent);
+  parent.removeAttribute('class');
+  parent.className = 'valid';
+  parent.lastElementChild.style.display = 'none';
+}
 
+function validationFail(element) {
+  const parent = element.parentElement;
+  //parent.removeAttribute('class');
+  parent.className = 'not-valid';
+  parent.lastElementChild.style.display = 'block';
+}
 
 
 // -------------------------------   Extra Credit --------------------------------------- //
