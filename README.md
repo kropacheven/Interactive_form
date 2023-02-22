@@ -11,9 +11,11 @@
  5) Payment info is made changeable according to selected payment method;  
  6) Name, email, activity and credit card sections are checked by form validation using regular expressions;
  7) Focus/blur state event listener is added for activities checkboxes for accessibility purpose;
- 8) Form validation errors are displayed on submition and spotted at the certain place where user made mistake;
+ 8) Form validation errors are displayed on submission and spotted at the certain place where user made mistake;
     when mistake is corrected - error sign is switched to correct status;
  9) On activities section the user is prevented from selecting two activities that are at the same day and time;
 
 10) Name and email input fields are programmed with realtime error messaging;
 11) Email input field error massage is customised with 2 options: if the field is empty - user is asked to type email, if the field is typed but incorrectly formatted - user is asked to rewrite it correctly.
+
+You can take a look at the project online: https://kropacheven.github.io/Interactive_form/
